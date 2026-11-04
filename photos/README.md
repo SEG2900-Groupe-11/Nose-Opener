@@ -1,0 +1,1 @@
+Each team member should upload a picture for the team page and they should specify their first name in each file. For example, alex.jpg.

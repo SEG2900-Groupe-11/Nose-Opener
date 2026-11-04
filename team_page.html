@@ -1,4 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>team page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team - Nose-Opener</title>
+
+    <style>
+        /* ---------- 1. General page style (from style_guidelines.txt) ---------- */
+        body {
+            margin: 0;
+            font-family: "Futura", "Trebuchet MS", Arial, sans-serif; /* Futura, with fallbacks */
+            font-weight: 300;            /* Futura Light for normal text */
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        /* ---------- 2. Header: darker than the rest of the page ---------- */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #3D3C3C;   /* medium grey = darkest allowed colour besides black */
+            color: #FFFFFF;
+            padding: 15px 30px;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #68EBF2;              /* team blue */
+            text-decoration: none;
+        }
+
+        header h1 {
+            font-weight: bold;           /* Futura Bold for titles */
+            margin: 0;
+        }
+
+        /* ---------- 3. Dropdown menu (pure CSS: opens on hover) ---------- */
+        .dropdown {
+            position: relative;
+        }
+
+        .menu-button {
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        .dropdown-links {
+            display: none;               /* hidden until hover */
+            position: absolute;
+            right: 0;
+            background-color: #68EBF2;
+            min-width: 160px;
+        }
+
+        .dropdown-links a {
+            display: block;
+            padding: 12px 16px;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .dropdown-links a:hover {
+            background-color: #FFFFFF;
+        }
+
+        .dropdown:hover .dropdown-links {
+            display: block;              /* show the links when the mouse is on the menu */
+        }
+
+        /* ---------- 4. Team members list ---------- */
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .member {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 2px solid #68EBF2;
+        }
+
+        .member h2 {
+            font-weight: bold;
+            margin: 0 0 8px 0;
+        }
+
+        .member p {
+            margin: 0;
+        }
+
+        .member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;          /* makes the photo round, like the mockup */
+            object-fit: cover;
+            border: 3px solid #3D3C3C;
+        }
+    </style>
 </head>
 
+<body>
+
+    <!--  HEADER: logo on the left, title in the middle, menu on the right
+    <header>
+        <a class="logo" href="home.html">Nose-Opener</a>
+        <h1>Team Members</h1>
+
+        <div class="dropdown">
+            <button class="menu-button">&#9776;</button>
+            <div class="dropdown-links">
+                <a href="home.html">Home</a>
+                <a href="product_page.html">Product</a>
+                <a href="price.html">Pricing</a>
+                <a href="team_page.html">Team</a>
+            </div>
+        </div>
+    </header> -->
+    
+
+    <!-- TEAM MEMBERS: text on the left, round photo on the right -->
+    <main>
+
+        <h1> Team members: </h1>
+
+        <div class="member">
+            <div>
+                <h2>Alexandru Burlac</h2>
+                <p>Role: TODO (e.g. web developer). One or two sentences about you.</p>
+            </div>
+            <img src="team-photos/alexandru.jpg" alt="Photo of Alexandru Burlac">
+        </div>
+
+        <div class="member">
+            <div>
+                <h2>Horlin Djouda Yombang</h2>
+                <p>Role: TODO. Short description.</p>
+            </div>
+            <img src="team-photos/horlin.jpg" alt="Photo of Horlin Djouda Yombang">
+        </div>
+
+        <div class="member">
+            <div>
+                <h2>Oumar Doumbia</h2>
+                <p>Role: TODO. Short description.</p>
+            </div>
+            <img src="team-photos/oumar.jpg" alt="Photo of Oumar Doumbia">
+        </div>
+
+        <div class="member">
+            <div>
+                <h2>Iliass El Guaari</h2>
+                <p>Role: TODO. Short description.</p>
+            </div>
+            <img src="team-photos/iliass.jpg" alt="Photo of Iliass El Guaari">
+        </div>
+
+        <div class="member">
+            <div>
+                <h2>Houda Jaoudar</h2>
+                <p>Role: TODO. Short description.</p>
+            </div>
+            <img src="team-photos/houda.jpg" alt="Photo of Houda Jaoudar">
+        </div>
+
+        <div class="member">
+            <div>
+                <h2>Zach Martel</h2>
+                <p>Role: TODO. Short description.</p>
+            </div>
+            <img src="team-photos/zach.jpg" alt="Photo of Zach Martel">
+        </div>
+
+    </main>
+
+</body>
+</html>
