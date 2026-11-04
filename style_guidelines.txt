@@ -1,0 +1,17 @@
+
+Police: "Futura" Bold, Light
+
+Couleurs permis (Codes Hex): 
+Bleu (dans mockups): 68EBF2
+Gris moyen: 3D3C3C
+Blanc: FFFFFF
+Noir: 000000
+
+Images flou (dans les même couleurs) pour couvrir des gros espaces.
+Ou couleur simple. 
+Images du produit (prend de l'internet)
+Header avec couleur plus foncée que le reste de la page.
+
+
+Dropdown avec CSS ou JS. 
+Dropdown met des liens pour les pages en dedans. 
