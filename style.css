@@ -1,0 +1,96 @@
+   :root {
+    /* Couleurs autorisées uniquement */
+    --bleu: #68EBF2;
+    --gris-moyen: #3D3C3C;
+    --blanc: #FFFFFF;
+    --noir: #000000;
+
+    --police-futura: "Futura", "Futura PT", "Trebuchet MS", sans-serif;
+    --poids-light: 300;
+    --poids-bold: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--police-futura);
+    font-weight: var(--poids-light);
+    background-color: var(--gris-moyen); 
+    color: var(--blanc);
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--noir);
+    color: var(--blanc);
+    border-bottom: 2px solid var(--bleu);
+    padding: 1.25rem 2.5rem;
+}
+
+header > div {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+header > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.Logo {
+    font-weight: var(--poids-bold);
+    font-size: 1.6rem;
+    color: var(--bleu);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+header p {
+    font-weight: var(--poids-bold);
+    font-size: 1.2rem;
+    color: var(--blanc);
+    letter-spacing: 0.5px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+header nav ul li {
+    font-weight: var(--poids-light);
+    font-size: 1rem;
+    color: var(--blanc);
+    cursor: pointer;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+header nav ul li:hover {
+    color: var(--bleu);
+    border-bottom-color: var(--bleu);
+}
+
+@media (max-width: 768px) {
+    header > div > div {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    header nav ul {
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
