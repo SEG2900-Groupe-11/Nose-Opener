@@ -1,33 +1,542 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceuil</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nose Opener — Accueil</title>
+  <!-- Header et footer : style.css (même fichier que les autres pages) -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Styles de la page d'accueil (le header et le footer viennent de style.css) -->
+  <style>
+    
+
+    .home {
+      /* mêmes couleurs que product_page.html */
+      --home-blue: #68EBF2;
+      --home-grey: #3D3C3C;
+      --home-white: #FFFFFF;
+      --home-black: #000000;
+      --home-light: #f4f4f4;
+      --home-muted: #8a8a8a;
+      --home-radius: 22px;
+
+      font-family: inherit;
+      color: var(--home-grey);
+      background: var(--home-white);
+    }
+
+    .home *,
+    .home *::before,
+    .home *::after { box-sizing: border-box; }
+
+    /* ---------- Textes communs ---------- */
+    .home-eyebrow {
+      margin: 0 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #cfcfcf;
+    }
+    .home-eyebrow--dark { color: var(--home-grey); }
+
+    .home-h2 {
+      margin: 0 0 40px;
+      color: var(--home-black);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      max-width: 760px;
+    }
+    .home .home-h2--light { color: var(--home-white); }
+
+    .home-section {
+      padding: 96px 6vw;
+      text-align: center;
+    }
+    .home-section .home-h2 { margin-left: auto; margin-right: auto; }
+
+    .home-note { margin: 14px 0 0; font-size: 12px; color: var(--home-muted); }
+
+    /* ---------- Boutons ---------- */
+    .home-btn {
+      display: inline-block;
+      padding: 16px 34px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: background-color .2s, color .2s, transform .2s;
+    }
+    .home-btn:hover { transform: translateY(-2px); }
+    .home-btn--blue { background-color: var(--home-blue); color: var(--home-black); }
+    .home-btn--blue:hover { background-color: var(--home-white); color: var(--home-black); }
+
+    /* ---------- 1. Bande promo ---------- */
+    .home-promo {
+      background: var(--home-grey);
+      color: #e8e8e8;
+      text-align: center;
+      font-size: 15px;
+      padding: 12px 20px;
+    }
+    .home-promo p { margin: 0; }
+    .home-code {
+      font-weight: 700;
+      color: var(--home-blue);
+      letter-spacing: .06em;
+    }
+
+    /* ---------- 2. Hero ---------- */
+    .home-hero {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      min-height: 88vh;
+      padding: 80px 6vw;
+      background:
+        radial-gradient(circle at 80% 40%, rgba(104,235,242,.22), transparent 55%),
+        var(--home-black);
+      color: var(--home-white);
+      overflow: hidden;
+    }
+
+    .home .home-hero__title {
+      color: var(--home-white);
+      margin: 0 0 24px;
+      font-size: clamp(42px, 6vw, 84px);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -.035em;
+    }
+    .home-hero__title span { color: var(--home-blue); }
+
+    .home-hero__desc {
+      max-width: 520px;
+      margin: 0 0 32px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #bdbdbd;
+    }
+
+    .home-price {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .home-price__now { font-size: 44px; font-weight: 800; white-space: nowrap; }
+    .home-price__old { white-space: nowrap; font-size: 20px; color: var(--home-muted); text-decoration: line-through; }
+    .home-price__badge {
+      align-self: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--home-blue);
+      color: var(--home-black);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .home-hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .home-hero__trust { margin: 26px 0 0; font-size: 14px; color: #9c9c9c; }
+
+    .home-hero__visual { display: flex; justify-content: center; }
+
+    .home-product {
+      position: relative;
+      width: min(100%, 520px);
+      aspect-ratio: 1;
+      animation: home-float 5s ease-in-out infinite;
+    }
+    .home-product svg,
+    .home-product img { width: 100%; height: 100%; object-fit: contain; }
+
+    .home-product__tag {
+      position: absolute;
+      top: 12%;
+      right: 4%;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.2);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    @keyframes home-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-14px); }
+    }
+
+    /* version photo */
+    .home-product--photo {
+      aspect-ratio: auto;
+      animation: none;
+    }
+    .home-product--photo img {
+      display: block;
+      height: auto;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08);
+    }
+    .home-product--photo .home-product__tag { top: 18px; right: 18px; }
+
+    /* ---------- 3. Avant / après ---------- */
+    .home-compare-wrap { background: var(--home-white); }
+
+    .home-compare-photo {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .home-compare-photo img {
+      width: 100%;
+      border-radius: var(--home-radius);
+      box-shadow: 0 20px 50px rgba(0,0,0,.15);
+    }
+    .home-compare-photo__text { display: grid; gap: 18px; }
+    .home-vs {
+      padding: 24px 26px;
+      border-radius: 16px;
+      border: 2px solid var(--home-light);
+      background: var(--home-light);
+    }
+    .home-vs h3 { color: var(--home-black); margin: 0 0 8px; font-size: 19px; }
+    .home-vs p { margin: 0; color: #555; line-height: 1.55; }
+    .home-vs--good { background: var(--home-black); border-color: var(--home-blue); color: var(--home-white); }
+    .home .home-vs--good h3 { color: var(--home-blue); }
+    .home-vs--good p { color: #bdbdbd; }
+
+    /* ---------- Tailles ---------- */
+    .home-sizes { background: var(--home-light); }
+    .home-sizes__img {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      border-radius: var(--home-radius);
+    }
+    .home-sizes__text { margin: 28px 0 0; font-size: 17px; color: #555; }
+
+    /* ---------- 4. Cartes ---------- */
+    .home-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .home-card {
+      padding: 36px 28px;
+      border-radius: 16px;
+      border: 2px solid var(--home-blue);
+      background: var(--home-white);
+      text-align: left;
+      transition: transform .25s, background .25s, color .25s;
+    }
+    .home-card:hover {
+      transform: translateY(-6px);
+      background: var(--home-black);
+      color: var(--home-white);
+    }
+    .home-card:hover p { color: #bdbdbd; }
+    .home .home-card:hover h3 { color: var(--home-white); }
+    .home-card__icon { font-size: 34px; margin-bottom: 18px; }
+    .home-card h3 { margin: 0 0 10px; font-size: 20px; }
+    .home-card p { margin: 0; line-height: 1.55; color: #555; transition: color .25s; }
+
+    /* ---------- 5. Étapes ---------- */
+    .home-steps-wrap { background: var(--home-black); }
+
+    .home-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+    }
+    .home-steps li {
+      padding: 40px 30px;
+      border-radius: 16px;
+      background: var(--home-grey);
+      color: var(--home-white);
+    }
+    .home-steps li > span {
+      display: inline-grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      background: var(--home-blue);
+      color: var(--home-black);
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .home .home-steps h3 { color: var(--home-white); margin: 0 0 10px; font-size: 22px; }
+    .home-steps p { margin: 0; color: #d0d0d0; line-height: 1.55; }
+
+    /* ---------- 6. Offre / publicité ---------- */
+    .home-offer { padding: 80px 6vw; background: var(--home-white); }
+
+    .home-offer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 56px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(104,235,242,.35), transparent 50%),
+        var(--home-black);
+      color: var(--home-white);
+    }
+    .home .home-offer__title {
+      color: var(--home-white);
+      margin: 0 0 22px;
+      font-size: clamp(28px, 3.6vw, 42px);
+      letter-spacing: -.02em;
+    }
+    .home-offer__title span { color: var(--home-blue); }
+    .home-offer__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: #cfcfcf;
+      font-size: 17px;
+    }
+    .home-offer__cta { text-align: center; flex-shrink: 0; }
+    .home-offer__timer { margin: 0 0 18px; color: #bdbdbd; }
+    .home-offer__timer strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 34px;
+      color: var(--home-white);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 960px) {
+      .home-hero { grid-template-columns: 1fr; text-align: center; min-height: auto; }
+      .home-hero__desc { margin-left: auto; margin-right: auto; }
+      .home-price, .home-hero__actions { justify-content: center; }
+      .home-hero__visual { order: -1; }
+      .home-product { width: min(80%, 380px); }
+      .home-cards { grid-template-columns: repeat(2, 1fr); }
+      .home-steps { grid-template-columns: 1fr; }
+      .home-compare-photo { grid-template-columns: 1fr; }
+      .home-offer__inner { flex-direction: column; text-align: center; padding: 44px 28px; }
+      .home-offer__list { justify-items: center; }
+    }
+
+    @media (max-width: 560px) {
+      .home-section { padding: 70px 5vw; }
+      .home-cards { grid-template-columns: 1fr; }
+      .home-price__now { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
     <header>
         <div>
             <div>
-                <div class="Logo">Logo</div>
+                <div class="Logo">NP</div>
                 <div>
-                    <p>Titre</p>
+                    <p>Nose Opener LTD</p>
                 </div>
                 <div>
-                    <nav>
+                    <nav tabindex="0">
                         <ul>
-                            <li>Home</li>
-                            <li>Pricing</li>
-                            <li>Teampage</li>
-                            <li>Product Page</li>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="price.html">Pricing</a></li>
+                            <li><a href="team_page.html">Teampage</a></li>
+                            <li><a href="product_page.html">Product Page</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
-
     </header>
-    <script src="index.js"></script>
-  </body>
+
+  <main class="home">
+
+    <!-- ===== 1. BANDE PROMO ===== -->
+    <div class="home-promo">
+      <p>🇨🇦 Livraison gratuite au Canada &nbsp;|&nbsp; <strong>-20 %</strong> avec le code <span class="home-code">RESPIRE20</span></p>
+    </div>
+
+    <!-- ===== 2. HERO : photo + titre + description + prix ===== -->
+    <section class="home-hero">
+      <div class="home-hero__text">
+        <p class="home-eyebrow">Dilatateur nasal magnétique</p>
+        <h1 class="home-hero__title">Respirez mieux.<br>Dormez mieux.<br><span>Performez mieux.</span></h1>
+        <p class="home-hero__desc">
+          Nose Opener ouvre doucement vos narines grâce à deux petits aimants.
+          Plus d'air à chaque respiration, moins de ronflements, et une bande réutilisable qui se met en 2 secondes.
+        </p>
+
+        <div class="home-price">
+          <span class="home-price__now">34,99 $</span>
+          <span class="home-price__old">44,99 $</span>
+          <span class="home-price__badge">-22 %</span>
+        </div>
+
+        <div class="home-hero__actions">
+          <a href="product_page.html" class="home-btn home-btn--blue">Acheter maintenant</a>
+        </div>
+
+        <p class="home-hero__trust">✓ Essai sans risque de 90 jours &nbsp;·&nbsp; ✓ Bande réutilisable</p>
+      </div>
+
+      <div class="home-hero__visual">
+        <div class="home-product home-product--photo">
+          <img src="images/produit.png" alt="Dilatateur nasal magnétique Nose Opener">
+          <span class="home-product__tag">Kit de départ</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3. AVANT / APRÈS ===== -->
+    <section class="home-section home-compare-wrap">
+      <p class="home-eyebrow home-eyebrow--dark">La différence</p>
+      <h2 class="home-h2">Des narines vraiment ouvertes</h2>
+
+      <div class="home-compare-photo">
+        <img src="images/comparaison.png" alt="Comparaison : bande nasale classique et dilatateur magnétique">
+        <div class="home-compare-photo__text">
+          <div class="home-vs home-vs--bad">
+            <h3>✗ Bande nasale classique</h3>
+            <p>Colle sur toute la peau, perd son effet pendant la nuit et se jette après une seule utilisation.</p>
+          </div>
+          <div class="home-vs home-vs--good">
+            <h3>✓ Nose Opener</h3>
+            <p>Les aimants tirent les côtés du nez vers l'extérieur : les narines restent ouvertes toute la nuit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4. POURQUOI (comme le popup de l'exemple) ===== -->
+    <section class="home-section">
+      <p class="home-eyebrow home-eyebrow--dark">Pour qui ?</p>
+      <h2 class="home-h2">Qu'est-ce qu'une meilleure respiration peut faire pour vous ?</h2>
+
+      <div class="home-cards">
+        <article class="home-card">
+          <div class="home-card__icon">🌙</div>
+          <h3>Mieux dormir</h3>
+          <p>Moins de ronflements, un sommeil plus profond et un réveil plus reposé.</p>
+        </article>
+        <article class="home-card">
+          <div class="home-card__icon">🏃</div>
+          <h3>Sport et performance</h3>
+          <p>Plus d'oxygène pendant l'entraînement, au gym comme sur le terrain.</p>
+        </article>
+        <article class="home-card">
+          <div class="home-card__icon">🤧</div>
+          <h3>Nez bouché</h3>
+          <p>Un coup de pouce quand le rhume ou les allergies vous bloquent le nez.</p>
+        </article>
+        <article class="home-card">
+          <div class="home-card__icon">♻️</div>
+          <h3>Réutilisable</h3>
+          <p>Une seule bande magnétique, il suffit de changer les petites languettes.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 4b. TAILLES ===== -->
+    <section class="home-section home-sizes">
+      <p class="home-eyebrow home-eyebrow--dark">Pour tous les nez</p>
+      <h2 class="home-h2">Choisissez votre taille</h2>
+      <img class="home-sizes__img" src="images/tailles.png" alt="Nose Opener en 4 tailles : Small, Medium, Large et X-Large">
+      <p class="home-sizes__text">4 tailles disponibles : <strong>S, M, L et XL</strong>. Pas sûr ? Le kit de départ inclut un guide pour trouver la vôtre.</p>
+    </section>
+
+    <!-- ===== 5. COMMENT ÇA MARCHE ===== -->
+    <section class="home-section home-steps-wrap">
+      <p class="home-eyebrow">Simple comme 1-2-3</p>
+      <h2 class="home-h2 home-h2--light">Comment ça marche</h2>
+      <ol class="home-steps">
+        <li><span>1</span><h3>Collez</h3><p>Placez les deux petites languettes de chaque côté du nez.</p></li>
+        <li><span>2</span><h3>Clippez</h3><p>La bande magnétique s'attache toute seule aux languettes.</p></li>
+        <li><span>3</span><h3>Respirez</h3><p>Vos narines s'ouvrent. Profitez de chaque respiration.</p></li>
+      </ol>
+    </section>
+
+    <!-- ===== 6. PUBLICITÉ / OFFRE ===== -->
+    <section class="home-offer">
+      <div class="home-offer__inner">
+        <div>
+          <p class="home-eyebrow">Offre de lancement</p>
+          <h2 class="home-offer__title">Le kit de départ à <span>34,99 $</span></h2>
+          <ul class="home-offer__list">
+            <li>✓ 1 bande magnétique réutilisable</li>
+            <li>✓ 30 paires de languettes</li>
+            <li>✓ Étui de transport</li>
+            <li>✓ Garantie satisfait ou remboursé 90 jours</li>
+          </ul>
+        </div>
+        <div class="home-offer__cta">
+          <p class="home-offer__timer">L'offre se termine dans <strong id="countdown">--:--:--</strong></p>
+          <a href="product_page.html" class="home-btn home-btn--blue">J'en profite</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+    <footer>
+        <div>
+            <div>
+                <div class="Logo">NP</div>
+                <p>© 2026 Nose Opener LTD. Tous droits réservés.</p>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="price.html">Pricing</a></li>
+                    <li><a href="team_page.html">Teampage</a></li>
+                    <li><a href="product_page.html">Product Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+  <script>
+    // ===== Compte à rebours de l'offre (jusqu'à minuit) =====
+    const countdown = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date();
+      const midnight = new Date(now);
+      midnight.setHours(24, 0, 0, 0);
+      const diff = midnight - now;
+
+      const h = String(Math.floor(diff / 3600000)).padStart(2, "0");
+      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, "0");
+      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, "0");
+      countdown.textContent = `${h}:${m}:${s}`;
+    }
+
+    if (countdown) {
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+  </script>
+</body>
 </html>
