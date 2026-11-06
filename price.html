@@ -1,32 +1,103 @@
-<html>
-    <body>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <!--Page specific css-->
     <style>
         .centreRight 
         {
             width: 80vw;
             text-align: right;
         }
-        .centreRight-Sub 
+        .centreRight Sub 
         {
             font-size: 50%;
+        }
+        
+        .main {
+            max-width: 900px;
+            margin: 0% auto;
+            padding: 0 20px;
+        }
+
+        .priceTab {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 2px solid #68EBF2;
+        }
+
+        .priceTab text {
+            font-weight: bold;
+            margin: 0 0 8px 0;
         }
     </style>
 <head>
     <title>Price page</title>
-
-    <h1 class ="centreRight"> Format de prix 1
-        <p>SousTexte1</p>
-         <p>SousTexte2</p>
-    </h1>
-    <h2 class ="centreRight-Sub"> Format de prix 2
-        <p>SousTexte1</p>
-         <p>SousTexte2</p>
-    </h2>
-    <h3 class ="centreRight-Sub"> Format de prix 2
-        <p>SousTexte1</p>
-         <p>SousTexte2</p>
-    </h3>
     
+    <!--Common header, style derived from css file.-->
+    <header>
+        <div>
+            <div>
+                <div class="Logo">NP</div>
+                <div>
+                    <p>Nose Opener LTD</p>
+                </div>
+                <div>
+                    <nav tabindex="0">
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="price.html">Pricing</a></li>
+                            <li><a href="team_page.html">Teampage</a></li>
+                            <li><a href="product_page.html">Product Page</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="main">
+        <h1 class ="priceTab"> Plastic
+            <txt> 
+            <p>SousTexte1</p>
+             <p>SousTexte2</p>
+            </txt> 
+        </h1>
+        <h2 class ="priceTab"> Polyurethane
+           <txt> 
+            <p>SousTexte1</p>
+            <p>SousTexte2</p>
+            </txt> 
+        </h2>
+        <h3 class ="priceTab"> Carbon Fiber
+            <txt> 
+            <p>SousTexte1</p>
+             <p>SousTexte2</p>
+            </txt> 
+        </h3>
+    </div>
+    
+    <footer>
+        <div>
+            <div>
+                 <footer>
+        <div>
+            <div>
+                <div class="Logo">NP</div>
+                <p>© 2026 Nose Opener LTD. Tous droits réservés.</p>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="price.html">Pricing</a></li>
+                    <li><a href="team_page.html">Teampage</a></li>
+                    <li><a href="product_page.html">Product Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
 </head>
 </body>
 </html>
