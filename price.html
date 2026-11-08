@@ -14,19 +14,29 @@
             font-size: 50%;
         }
         
+        .mainBG {
+            background-image: url("images/voronoi.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
         .main {
-            max-width: 900px;
+             backdrop-filter: opacity(50%);
+            backdrop-filter: blur(150px);
             margin: 0% auto;
             padding: 0 20px;
+            height: 100vh; 
+            width: 100vw; 
         }
 
         .priceTab {
+            max-width: 900px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 20px;
-            padding: 20px 0;
+            padding: 20px 20px;
             border-bottom: 2px solid #68EBF2;
+            background-color: #3D3C3C;
         }
 
         .priceTab text {
@@ -58,28 +68,18 @@
             </div>
         </div>
     </header>
-    
+<div class="mainBG">
     <div class="main">
-        <h1 class ="priceTab"> Plastic
+        <h1 class ="priceTab"> 
             <txt> 
-            <p>SousTexte1</p>
-             <p>SousTexte2</p>
+            <txt style="color: #FFFFFF;">Nose-Opener v1.0</txt>
+            <p style="font-size: 50%; color: #8a8a8a;">(Taille est sélectionable durant le checkout).</p>    
+            <span style="color:  #68EBF2;">34,99 $</span>
+            <span style="color:  #000000; font-size: 50%; text-decoration: line-through; opacity: 0.5;">44,99 $</span>
             </txt> 
         </h1>
-        <h2 class ="priceTab"> Polyurethane
-           <txt> 
-            <p>SousTexte1</p>
-            <p>SousTexte2</p>
-            </txt> 
-        </h2>
-        <h3 class ="priceTab"> Carbon Fiber
-            <txt> 
-            <p>SousTexte1</p>
-             <p>SousTexte2</p>
-            </txt> 
-        </h3>
     </div>
-    
+
     <footer>
         <div>
             <div>
@@ -97,7 +97,6 @@
             </div>
         </div>
     </footer>
-
 </head>
 </body>
 </html>
