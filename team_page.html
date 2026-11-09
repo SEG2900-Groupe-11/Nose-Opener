@@ -6,181 +6,388 @@
     <title>Team - Nose-Opener</title>
 
     <style>
-        /* ---------- 1. General page style (from style_guidelines.txt) ---------- */
+        /* General page style */
         body {
             margin: 0;
-            font-family: "Futura", "Trebuchet MS", Arial, sans-serif; /* Futura, with fallbacks */
-            font-weight: 300;            /* Futura Light for normal text */
+            font-family: "Futura", "Trebuchet MS", Arial, sans-serif; 
+            font-weight: 300;            
             background-color: #FFFFFF;
             color: #000000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;     
         }
 
-        /* ---------- 2. Header: darker than the rest of the page ---------- */
+        /* Header */
+        header,
+        header * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         header {
+            background-color: #000000;
+            color: #FFFFFF;
+            border-bottom: 2px solid #68EBF2;
+            padding: 1.25rem 2.5rem;
+        }
+
+        header > div {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        header > div > div {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #3D3C3C;   /* medium grey = darkest allowed colour besides black */
-            color: #FFFFFF;
-            padding: 15px 30px;
+            gap: 2rem;
         }
 
-        .logo {
-            font-weight: bold;
-            font-size: 24px;
-            color: #68EBF2;              /* team blue */
-            text-decoration: none;
-        }
-
-        header h1 {
-            font-weight: bold;           /* Futura Bold for titles */
-            margin: 0;
-        }
-
-        /* ---------- 3. Dropdown menu (pure CSS: opens on hover) ---------- */
-        .dropdown {
-            position: relative;
-        }
-
-        .menu-button {
-            font-size: 28px;
-            background: none;
-            border: none;
-            color: #FFFFFF;
+        .Logo {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #68EBF2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             cursor: pointer;
         }
 
-        .dropdown-links {
-            display: none;               /* hidden until hover */
-            position: absolute;
-            right: 0;
-            background-color: #68EBF2;
-            min-width: 160px;
+        header p {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
         }
 
-        .dropdown-links a {
-            display: block;
-            padding: 12px 16px;
-            color: #000000;
+        header nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        header nav ul li a {
+            font-weight: 300;
+            font-size: 1rem;
+            color: #FFFFFF;
             text-decoration: none;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s ease, border-color 0.2s ease;
+            display: inline-block;
         }
 
-        .dropdown-links a:hover {
-            background-color: #FFFFFF;
+        header nav ul li a:hover {
+            color: #68EBF2;
+            border-bottom-color: #68EBF2;
         }
 
-        .dropdown:hover .dropdown-links {
-            display: block;              /* show the links when the mouse is on the menu */
+        /* Header on small screen */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            header nav {
+                position: relative;
+                outline: none;
+            }
+
+            header nav::before {
+                content: "☰";
+                display: inline-block;
+                font-weight: 700;
+                color: #68EBF2;
+                border: 1px solid #68EBF2;
+                padding: 0.5rem 1rem;
+                cursor: pointer;
+            }
+
+            header nav ul {
+                display: none;
+                position: absolute;
+                right: 0;
+                top: 100%;
+                background-color: #000000;
+                border: 1px solid #68EBF2;
+                flex-direction: column;
+                gap: 0;
+                min-width: 180px;
+                z-index: 100;
+            }
+
+            header nav:hover ul,
+            header nav:focus-within ul {
+                display: flex;
+            }
+
+            header nav ul li {
+                width: 100%;
+            }
+
+            header nav ul li a {
+                display: block;
+                padding: 0.75rem 1.25rem;
+                border-bottom: 1px solid #3D3C3C;
+            }
+
+            header nav ul li a:hover {
+                background-color: #3D3C3C;
+                border-bottom-color: #68EBF2;
+            }
         }
 
-        /* ---------- 4. Team members list ---------- */
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+        /* Footer */
+        footer,
+        footer * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .member {
+        footer {
+            background-color: #000000;
+            color: #FFFFFF;
+            border-top: 2px solid #68EBF2;
+            padding: 1.5rem 2.5rem;
+            margin-top: auto;
+        }
+
+        footer > div {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        footer > div > div {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
-            padding: 20px 0;
-            border-bottom: 2px solid #68EBF2;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
-        .member h2 {
-            font-weight: bold;
-            margin: 0 0 8px 0;
+        footer p {
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: #FFFFFF;
         }
 
-        .member p {
+        footer ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        footer ul li a {
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer ul li a:hover {
+            color: #68EBF2;
+        }
+
+        @media (max-width: 768px) {
+            footer > div > div {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            footer ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        main {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+            box-sizing: border-box;
+        }
+
+        /* Page title */
+        .team-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .team-title h1 {
             margin: 0;
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .team-title h1::after {          
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            margin: 14px auto 0;
+            background-color: #68EBF2;
+        }
+
+        /* Team members styling */
+    
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .member {
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid rgba(61, 60, 60, 0.2);
+            border-radius: 12px;
         }
 
         .member img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;          /* makes the photo round, like the mockup */
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;          
             object-fit: cover;
-            border: 3px solid #3D3C3C;
+            border: 3px solid #68EBF2;
+        }
+
+        .member h2 {
+            margin: 16px 0 4px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .member-role {
+            margin: 0 0 12px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #3D3C3C;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .member-desc {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #3D3C3C;
+        }
+
+        @media (max-width: 860px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!--  HEADER: logo on the left, title in the middle, menu on the right
+    <!-- Header element -->
     <header>
-        <a class="logo" href="home.html">Nose-Opener</a>
-        <h1>Team Members</h1>
-
-        <div class="dropdown">
-            <button class="menu-button">&#9776;</button>
-            <div class="dropdown-links">
-                <a href="home.html">Home</a>
-                <a href="product_page.html">Product</a>
-                <a href="price.html">Pricing</a>
-                <a href="team_page.html">Team</a>
+        <div>
+            <div>
+                <div class="Logo">NP</div>
+                <div>
+                    <p>Nose Opener LTD</p>
+                </div>
+                <div>
+                    <nav tabindex="0">
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="price.html">Pricing</a></li>
+                            <li><a href="team_page.html">Teampage</a></li>
+                            <li><a href="product_page.html">Product Page</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
-    </header> -->
+    </header>
     
 
-    <!-- TEAM MEMBERS: text on the left, round photo on the right -->
+    <!-- List of team members with assigned roles to match a fictional company -->
     <main>
 
-        <h1> Team members: </h1>
+        <div class="team-title">
+            <h1>Team members</h1>
+        </div>
 
-        <div class="member">
-            <div>
+        <div class="team-grid">
+
+            <div class="member">
+                <img src="images/default-avatar.svg" alt="Photo of Alexandru Burlac">
                 <h2>Alexandru Burlac</h2>
-                <p>Role: TODO (e.g. web developer). One or two sentences about you.</p>
+                <p class="member-role">Web Developer</p>
+                <p class="member-desc">Builds the Nose Opener website and keeps every page fast and easy to use.</p>
             </div>
-            <img src="team-photos/alexandru.jpg" alt="Photo of Alexandru Burlac">
-        </div>
 
-        <div class="member">
-            <div>
+            <div class="member">
+                <img src="images/default-avatar.svg" alt="Photo of Horlin Djouda Yombang">
                 <h2>Horlin Djouda Yombang</h2>
-                <p>Role: TODO. Short description.</p>
+                <p class="member-role">Product Designer</p>
+                <p class="member-desc">Designs the magnetic strip and makes sure it stays comfortable all night.</p>
             </div>
-            <img src="team-photos/horlin.jpg" alt="Photo of Horlin Djouda Yombang">
-        </div>
 
-        <div class="member">
-            <div>
+            <div class="member">
+                <img src="images/default-avatar.svg" alt="Photo of Oumar Doumbia">
                 <h2>Oumar Doumbia</h2>
-                <p>Role: TODO. Short description.</p>
+                <p class="member-role">Marketing Lead</p>
+                <p class="member-desc">Spreads the word about Nose Opener and runs our launch promotions.</p>
             </div>
-            <img src="team-photos/oumar.jpg" alt="Photo of Oumar Doumbia">
-        </div>
 
-        <div class="member">
-            <div>
+            <div class="member">
+                <img src="images/default-avatar.svg" alt="Photo of Iliass El Guaari">
                 <h2>Iliass El Guaari</h2>
-                <p>Role: TODO. Short description.</p>
+                <p class="member-role">Operations Manager</p>
+                <p class="member-desc">Handles suppliers, stock and shipping so every order arrives on time.</p>
             </div>
-            <img src="team-photos/iliass.jpg" alt="Photo of Iliass El Guaari">
-        </div>
 
-        <div class="member">
-            <div>
+            <div class="member">
+                <img src="images/default-avatar.svg" alt="Photo of Houda Jaoudar">
                 <h2>Houda Jaoudar</h2>
-                <p>Role: TODO. Short description.</p>
+                <p class="member-role">Customer Support</p>
+                <p class="member-desc">Answers customer questions and helps everyone find the right size.</p>
             </div>
-            <img src="team-photos/houda.jpg" alt="Photo of Houda Jaoudar">
-        </div>
 
-        <div class="member">
-            <div>
+            <div class="member">
+                <img src="images/default-avatar.svg" alt="Photo of Zach Martel">
                 <h2>Zach Martel</h2>
-                <p>Role: TODO. Short description.</p>
+                <p class="member-role">Project Manager</p>
+                <p class="member-desc">Keeps the team organized, sets the deadlines and makes sure we hit them.</p>
             </div>
-            <img src="team-photos/zach.jpg" alt="Photo of Zach Martel">
+
         </div>
 
     </main>
+
+    <!-- Footer element-->
+    <footer>
+        <div>
+            <div>
+                <div class="Logo">NP</div>
+                <p>© 2026 Nose Opener LTD. All rights reserved.</p>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="price.html">Pricing</a></li>
+                    <li><a href="team_page.html">Teampage</a></li>
+                    <li><a href="product_page.html">Product Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

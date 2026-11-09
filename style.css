@@ -1,5 +1,5 @@
 :root {
-    /* Couleurs autorisées uniquement */
+    /* Allowed colours only */
     --bleu: #68EBF2;
     --gris-moyen: #3D3C3C;
     --blanc: #FFFFFF;
@@ -24,7 +24,7 @@ body {
     color: var(--blanc);*/
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Permet de pousser le footer tout en bas */
+    flex-direction: column; /* Pushes the footer to the very bottom */
 }
 
 
@@ -142,7 +142,7 @@ footer ul li a:hover {
         outline: none;
     }
 
-    /* Crée le bouton du menu déroulant sur petit écran */
+    /* Creates the dropdown menu button on small screens */
     header nav::before {
         content: "☰";
         display: inline-block;
@@ -153,7 +153,7 @@ footer ul li a:hover {
         cursor: pointer;
     }
 
-    /* Cache la liste par défaut et la transforme en boîte déroulante */
+    /* Hides the list by default and turns it into a dropdown box */
     header nav ul {
         display: none;
         position: absolute;
@@ -167,7 +167,7 @@ footer ul li a:hover {
         z-index: 100;
     }
 
-    /* Affiche le menu au survol ou au clic sur mobile */
+    /* Shows the menu on hover or tap on mobile */
     header nav:hover ul,
     header nav:focus-within ul {
         display: flex;
@@ -188,7 +188,7 @@ footer ul li a:hover {
         border-bottom-color: var(--bleu);
     }
 
-    /* Adaptation du footer sur mobile */
+    /* Footer layout on mobile */
     footer > div > div {
         flex-direction: column;
         text-align: center;

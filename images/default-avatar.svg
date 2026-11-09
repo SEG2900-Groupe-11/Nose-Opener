@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Default user picture (placeholder until real team photos are added) -->
+  <rect width="120" height="120" fill="#3D3C3C"/>
+  <circle cx="60" cy="46" r="22" fill="#68EBF2"/>
+  <path d="M18 120c0-26 19-42 42-42s42 16 42 42z" fill="#68EBF2"/>
+</svg>

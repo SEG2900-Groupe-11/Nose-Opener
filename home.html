@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nose Opener — Accueil</title>
-  <!-- Header et footer : style.css (même fichier que les autres pages) -->
+  <title>Nose Opener — Home</title>
+  <!-- Header and footer: style.css (same file as the other pages) -->
   <link rel="stylesheet" href="style.css">
-  <!-- Styles de la page d'accueil (le header et le footer viennent de style.css) -->
+  <!-- Home page styles (the header and footer come from style.css) -->
   <style>
     
 
     .home {
-      /* mêmes couleurs que product_page.html */
+      /* same colours as product_page.html */
       --home-blue: #68EBF2;
       --home-grey: #3D3C3C;
       --home-white: #FFFFFF;
@@ -29,7 +29,7 @@
     .home *::before,
     .home *::after { box-sizing: border-box; }
 
-    /* ---------- Textes communs ---------- */
+    /* ---------- Shared text ---------- */
     .home-eyebrow {
       margin: 0 0 14px;
       font-size: 13px;
@@ -59,7 +59,7 @@
 
     .home-note { margin: 14px 0 0; font-size: 12px; color: var(--home-muted); }
 
-    /* ---------- Boutons ---------- */
+    /* ---------- Buttons ---------- */
     .home-btn {
       display: inline-block;
       padding: 16px 34px;
@@ -74,7 +74,7 @@
     .home-btn--blue { background-color: var(--home-blue); color: var(--home-black); }
     .home-btn--blue:hover { background-color: var(--home-white); color: var(--home-black); }
 
-    /* ---------- 1. Bande promo ---------- */
+    /* ---------- 1. Promo bar ---------- */
     .home-promo {
       background: var(--home-grey);
       color: #e8e8e8;
@@ -186,7 +186,7 @@
     }
     .home-product--photo .home-product__tag { top: 18px; right: 18px; }
 
-    /* ---------- 3. Avant / après ---------- */
+    /* ---------- 3. Before / after ---------- */
     .home-compare-wrap { background: var(--home-white); }
 
     .home-compare-photo {
@@ -216,7 +216,7 @@
     .home .home-vs--good h3 { color: var(--home-blue); }
     .home-vs--good p { color: #bdbdbd; }
 
-    /* ---------- Tailles ---------- */
+    /* ---------- Sizes ---------- */
     .home-sizes { background: var(--home-light); }
     .home-sizes__img {
       display: block;
@@ -227,7 +227,7 @@
     }
     .home-sizes__text { margin: 28px 0 0; font-size: 17px; color: #555; }
 
-    /* ---------- 4. Cartes ---------- */
+    /* ---------- 4. Cards ---------- */
     .home-cards {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -254,7 +254,7 @@
     .home-card h3 { margin: 0 0 10px; font-size: 20px; }
     .home-card p { margin: 0; line-height: 1.55; color: #555; transition: color .25s; }
 
-    /* ---------- 5. Étapes ---------- */
+    /* ---------- 5. Steps ---------- */
     .home-steps-wrap { background: var(--home-black); }
 
     .home-steps {
@@ -287,7 +287,7 @@
     .home .home-steps h3 { color: var(--home-white); margin: 0 0 10px; font-size: 22px; }
     .home-steps p { margin: 0; color: #d0d0d0; line-height: 1.55; }
 
-    /* ---------- 6. Offre / publicité ---------- */
+    /* ---------- 6. Offer / ad ---------- */
     .home-offer { padding: 80px 6vw; background: var(--home-white); }
 
     .home-offer__inner {
@@ -376,126 +376,126 @@
 
   <main class="home">
 
-    <!-- ===== 1. BANDE PROMO ===== -->
+    <!-- ===== 1. PROMO BAR ===== -->
     <div class="home-promo">
-      <p>🇨🇦 Livraison gratuite au Canada &nbsp;|&nbsp; <strong>-20 %</strong> avec le code <span class="home-code">RESPIRE20</span></p>
+      <p>🇨🇦 Free shipping in Canada &nbsp;|&nbsp; <strong>20% off</strong> with code <span class="home-code">BREATHE20</span></p>
     </div>
 
-    <!-- ===== 2. HERO : photo + titre + description + prix ===== -->
+    <!-- ===== 2. HERO: photo + title + description + price ===== -->
     <section class="home-hero">
       <div class="home-hero__text">
-        <p class="home-eyebrow">Dilatateur nasal magnétique</p>
-        <h1 class="home-hero__title">Respirez mieux.<br>Dormez mieux.<br><span>Performez mieux.</span></h1>
+        <p class="home-eyebrow">Magnetic nasal dilator</p>
+        <h1 class="home-hero__title">Breathe better.<br>Sleep better.<br><span>Perform better.</span></h1>
         <p class="home-hero__desc">
-          Nose Opener ouvre doucement vos narines grâce à deux petits aimants.
-          Plus d'air à chaque respiration, moins de ronflements, et une bande réutilisable qui se met en 2 secondes.
+          Nose Opener gently opens your nostrils with two small magnets.
+          More air with every breath, less snoring, and a reusable strip that goes on in 2 seconds.
         </p>
 
         <div class="home-price">
-          <span class="home-price__now">34,99 $</span>
-          <span class="home-price__old">44,99 $</span>
-          <span class="home-price__badge">-22 %</span>
+          <span class="home-price__now">$34.99</span>
+          <span class="home-price__old">$44.99</span>
+          <span class="home-price__badge">-22%</span>
         </div>
 
         <div class="home-hero__actions">
-          <a href="product_page.html" class="home-btn home-btn--blue">Acheter maintenant</a>
+          <a href="product_page.html" class="home-btn home-btn--blue">Buy now</a>
         </div>
 
-        <p class="home-hero__trust">✓ Essai sans risque de 90 jours &nbsp;·&nbsp; ✓ Bande réutilisable</p>
+        <p class="home-hero__trust">✓ 90-day risk-free trial &nbsp;·&nbsp; ✓ Reusable strip</p>
       </div>
 
       <div class="home-hero__visual">
         <div class="home-product home-product--photo">
-          <img src="images/produit.png" alt="Dilatateur nasal magnétique Nose Opener">
-          <span class="home-product__tag">Kit de départ</span>
+          <img src="images/produit.png" alt="Nose Opener magnetic nasal dilator">
+          <span class="home-product__tag">Starter kit</span>
         </div>
       </div>
     </section>
 
-    <!-- ===== 3. AVANT / APRÈS ===== -->
+    <!-- ===== 3. BEFORE / AFTER ===== -->
     <section class="home-section home-compare-wrap">
-      <p class="home-eyebrow home-eyebrow--dark">La différence</p>
-      <h2 class="home-h2">Des narines vraiment ouvertes</h2>
+      <p class="home-eyebrow home-eyebrow--dark">The difference</p>
+      <h2 class="home-h2">Truly open nostrils</h2>
 
       <div class="home-compare-photo">
-        <img src="images/comparaison.png" alt="Comparaison : bande nasale classique et dilatateur magnétique">
+        <img src="images/comparaison.png" alt="Comparison: classic nasal strip and magnetic dilator">
         <div class="home-compare-photo__text">
           <div class="home-vs home-vs--bad">
-            <h3>✗ Bande nasale classique</h3>
-            <p>Colle sur toute la peau, perd son effet pendant la nuit et se jette après une seule utilisation.</p>
+            <h3>✗ Classic nasal strip</h3>
+            <p>Sticks to your skin, loses its effect during the night and gets thrown away after one use.</p>
           </div>
           <div class="home-vs home-vs--good">
             <h3>✓ Nose Opener</h3>
-            <p>Les aimants tirent les côtés du nez vers l'extérieur : les narines restent ouvertes toute la nuit.</p>
+            <p>The magnets pull the sides of your nose outward, so your nostrils stay open all night.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== 4. POURQUOI (comme le popup de l'exemple) ===== -->
+    <!-- ===== 4. WHY (like the popup in the example) ===== -->
     <section class="home-section">
-      <p class="home-eyebrow home-eyebrow--dark">Pour qui ?</p>
-      <h2 class="home-h2">Qu'est-ce qu'une meilleure respiration peut faire pour vous ?</h2>
+      <p class="home-eyebrow home-eyebrow--dark">Who is it for?</p>
+      <h2 class="home-h2">What can better breathing do for you?</h2>
 
       <div class="home-cards">
         <article class="home-card">
           <div class="home-card__icon">🌙</div>
-          <h3>Mieux dormir</h3>
-          <p>Moins de ronflements, un sommeil plus profond et un réveil plus reposé.</p>
+          <h3>Sleep better</h3>
+          <p>Less snoring, deeper sleep and a more rested morning.</p>
         </article>
         <article class="home-card">
           <div class="home-card__icon">🏃</div>
-          <h3>Sport et performance</h3>
-          <p>Plus d'oxygène pendant l'entraînement, au gym comme sur le terrain.</p>
+          <h3>Sports and performance</h3>
+          <p>More oxygen while you train, at the gym or on the field.</p>
         </article>
         <article class="home-card">
           <div class="home-card__icon">🤧</div>
-          <h3>Nez bouché</h3>
-          <p>Un coup de pouce quand le rhume ou les allergies vous bloquent le nez.</p>
+          <h3>Blocked nose</h3>
+          <p>A little help when a cold or allergies block your nose.</p>
         </article>
         <article class="home-card">
           <div class="home-card__icon">♻️</div>
-          <h3>Réutilisable</h3>
-          <p>Une seule bande magnétique, il suffit de changer les petites languettes.</p>
+          <h3>Reusable</h3>
+          <p>One magnetic strip: just replace the small tabs.</p>
         </article>
       </div>
     </section>
 
-    <!-- ===== 4b. TAILLES ===== -->
+    <!-- ===== 4b. SIZES ===== -->
     <section class="home-section home-sizes">
-      <p class="home-eyebrow home-eyebrow--dark">Pour tous les nez</p>
-      <h2 class="home-h2">Choisissez votre taille</h2>
-      <img class="home-sizes__img" src="images/tailles.png" alt="Nose Opener en 4 tailles : Small, Medium, Large et X-Large">
-      <p class="home-sizes__text">4 tailles disponibles : <strong>S, M, L et XL</strong>. Pas sûr ? Le kit de départ inclut un guide pour trouver la vôtre.</p>
+      <p class="home-eyebrow home-eyebrow--dark">For every nose</p>
+      <h2 class="home-h2">Choose your size</h2>
+      <img class="home-sizes__img" src="images/tailles.png" alt="Nose Opener in 4 sizes: Small, Medium, Large and X-Large">
+      <p class="home-sizes__text">4 sizes available: <strong>S, M, L and XL</strong>. Not sure? The starter kit includes a guide to find yours.</p>
     </section>
 
-    <!-- ===== 5. COMMENT ÇA MARCHE ===== -->
+    <!-- ===== 5. HOW IT WORKS ===== -->
     <section class="home-section home-steps-wrap">
-      <p class="home-eyebrow">Simple comme 1-2-3</p>
-      <h2 class="home-h2 home-h2--light">Comment ça marche</h2>
+      <p class="home-eyebrow">As easy as 1-2-3</p>
+      <h2 class="home-h2 home-h2--light">How it works</h2>
       <ol class="home-steps">
-        <li><span>1</span><h3>Collez</h3><p>Placez les deux petites languettes de chaque côté du nez.</p></li>
-        <li><span>2</span><h3>Clippez</h3><p>La bande magnétique s'attache toute seule aux languettes.</p></li>
-        <li><span>3</span><h3>Respirez</h3><p>Vos narines s'ouvrent. Profitez de chaque respiration.</p></li>
+        <li><span>1</span><h3>Stick</h3><p>Place the two small tabs on each side of your nose.</p></li>
+        <li><span>2</span><h3>Clip</h3><p>The magnetic strip snaps onto the tabs by itself.</p></li>
+        <li><span>3</span><h3>Breathe</h3><p>Your nostrils open up. Enjoy every breath.</p></li>
       </ol>
     </section>
 
-    <!-- ===== 6. PUBLICITÉ / OFFRE ===== -->
+    <!-- ===== 6. AD / OFFER ===== -->
     <section class="home-offer">
       <div class="home-offer__inner">
         <div>
-          <p class="home-eyebrow">Offre de lancement</p>
-          <h2 class="home-offer__title">Le kit de départ à <span>34,99 $</span></h2>
+          <p class="home-eyebrow">Launch offer</p>
+          <h2 class="home-offer__title">The starter kit for <span>$34.99</span></h2>
           <ul class="home-offer__list">
-            <li>✓ 1 bande magnétique réutilisable</li>
-            <li>✓ 30 paires de languettes</li>
-            <li>✓ Étui de transport</li>
-            <li>✓ Garantie satisfait ou remboursé 90 jours</li>
+            <li>✓ 1 reusable magnetic strip</li>
+            <li>✓ 30 pairs of tabs</li>
+            <li>✓ Carrying case</li>
+            <li>✓ 90-day money-back guarantee</li>
           </ul>
         </div>
         <div class="home-offer__cta">
-          <p class="home-offer__timer">L'offre se termine dans <strong id="countdown">--:--:--</strong></p>
-          <a href="product_page.html" class="home-btn home-btn--blue">J'en profite</a>
+          <p class="home-offer__timer">Offer ends in <strong id="countdown">--:--:--</strong></p>
+          <a href="product_page.html" class="home-btn home-btn--blue">Get it now</a>
         </div>
       </div>
     </section>
@@ -506,7 +506,7 @@
         <div>
             <div>
                 <div class="Logo">NP</div>
-                <p>© 2026 Nose Opener LTD. Tous droits réservés.</p>
+                <p>© 2026 Nose Opener LTD. All rights reserved.</p>
                 <ul>
                     <li><a href="home.html">Home</a></li>
                     <li><a href="price.html">Pricing</a></li>
@@ -518,7 +518,7 @@
     </footer>
 
   <script>
-    // ===== Compte à rebours de l'offre (jusqu'à minuit) =====
+    // ===== Offer countdown (until midnight) =====
     const countdown = document.getElementById("countdown");
 
     function updateCountdown() {
